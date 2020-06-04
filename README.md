@@ -2,11 +2,12 @@
 
 hashing Strings.
 
-
 # Installing
 
 Download the [Hash.alfredworkflow](https://github.com/doersa/alfred-hash/releases/download/v1.0.0/Hash.alfredworkflow)
+
 Double-click to import into Alfred
+
 Review the workflow to add custom Hotkeys
 
 # About
