@@ -7,6 +7,7 @@ GO_BUILD=$(GO_CMD) build
 GO_BUILD_COMMON=$(GO_BUILD)
 GO_BUILD_MACOS_X86=$(GO_MACOS_X86_PREFIX) $(GO_BUILD)
 GO_BUILD_MACOS_ARM=$(GO_MACOS_ARM_PREFIX) $(GO_BUILD)
+VERSION?=$(shell git describe --tags)
 
 .PHONY: clean all archive x86_app arm_app build
 .DEFAULT: all
@@ -25,6 +26,9 @@ build: x86_app arm_app
 
 unzip:
 	unzip Hash.alfredworkflow -d tmp; 
+
+update_version:
+	plutil -replace version -string $(VERSION) info.plist
 
 archive: 
 	zip -r Hash.alfredworkflow hash icon.png info.plist; 
