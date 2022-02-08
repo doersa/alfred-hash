@@ -32,7 +32,7 @@ jobs:
         property: version
 
     - name: Update Version
-      run: make update_version VERSION=v${{steps.version.outputs.value}}
+      run: make update_version VERSION=${{steps.version.outputs.value}}
     
     - name: Archive
       run: make archive
@@ -45,8 +45,8 @@ jobs:
       with:
         tag_name: v${{steps.version.outputs.value}}
         release_name: v${{steps.version.outputs.value}}
-        draft: false
-        prerelease: true
+        draft: true
+        prerelease: false
 
     - name: Upload Release Asset
       id: upload-release-asset
